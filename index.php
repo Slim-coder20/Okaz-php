@@ -35,7 +35,7 @@ $categories = [
         <div class="row justify-content-center g-4 mt-3">
             <?php
 
-            foreach ($listings as $listing) {
+            foreach ($listings as $key => $listing) {
                 require './template/listing_part.php';
             }
 
@@ -51,7 +51,7 @@ $categories = [
     <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
 
         <?php
-        foreach ($categories as $category) {
+        foreach ($categories as $key => $category) {
             require './template/category_part.php';
         }
 

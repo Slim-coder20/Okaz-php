@@ -47,7 +47,7 @@ $listings =  getListings();
                 <div class="row justify-content-center g-4 mt-3">
                     <?php
 
-                    foreach ($listings as $listing) {
+                    foreach ($listings as $key => $listing) {
                         require './template/listing_part.php';
                     }
 
