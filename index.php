@@ -3,13 +3,22 @@
 
 $listings = [
 
-    ["title" => "test1", "price"=>30, "image" => "rocket-league.jpg"],
-    ["title" => "test2", "price"=>25, "image" => "rocket-league.jpg"],
-    ["title" => "test3", "price"=>15, "image" => "rocket-league.jpg"],
-    
+    ["title" => "test1", "price" => 30, "image" => "rocket-league.jpg"],
+    ["title" => "test2", "price" => 25, "image" => "rocket-league.jpg"],
+    ["title" => "test3", "price" => 15, "image" => "rocket-league.jpg"],
+
+];
+
+$categories = [
+    ["name" => "Jeux videos", "icon" => "controller"],
+    ["name" => "Vetements", "icon" => "tag"],
+    ["name" => "Meubles", "icon" => "lamp"],
+
 ];
 
 ?>
+
+
 
 <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
     <div class="col-10 col-sm-8 col-lg-6">
@@ -26,8 +35,8 @@ $listings = [
 </div>
 <!-- Section Annonces Cartes  -->
 <div class="container">
-    <div class="row text-center">
-        <h2>Les dernières annonces</h2>
+    <div class="row">
+        <h2 class="pb-2 border-bottom ">les dernières annonces</h2>
         <div class="row justify-content-center g-4 mt-3">
             <?php
 
@@ -39,6 +48,20 @@ $listings = [
 
             ?>
         </div>
+    </div>
+</div>
+<!-- ############ Section Category  -->
+<div class="  py-5 " id="hanging-icons">
+    <h2 class="pb-2 border-bottom ">les catégories</h2>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+
+        <?php
+        foreach ($categories as $category) {
+            require './template/category_part.php';
+        }
+
+        ?>
+
     </div>
 </div>
 
