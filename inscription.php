@@ -1,5 +1,9 @@
 <?php
 require_once './template/header.php';
+require_once 'libs/pdo.php';
+require_once 'libs/user.php';
+
+// addUser($pdo, "test1", "test1@gmail.com", "abc123");
 ?>
 
 
