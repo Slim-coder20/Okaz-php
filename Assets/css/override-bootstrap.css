@@ -123,3 +123,8 @@ form i {
   max-width: 700px;
   padding: 1rem;
 }
+
+.form-signin {
+  max-width: 430px;
+  padding: 1rem;
+}
