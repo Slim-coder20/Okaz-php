@@ -1,19 +1,17 @@
 <!-- ###### Secrtion heros -->
-<?php require_once './template/header.php';
-      require_once 'libs/listing.php';
+<?php
+
+require_once './template/header.php';
+require_once 'libs/listing.php';
+require_once 'libs/category.php';
 
 $listings =  getListings();
 
-$categories = [
-    ["name" => "Jeux videos", "icon" => "controller"],
-    ["name" => "Vetements", "icon" => "tag"],
-    ["name" => "Meubles", "icon" => "lamp"],
-
-];
+$categories = getCategories();
 
 ?>
 
-
+<!-- ###### Section Header -->
 
 <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
     <div class="col-10 col-sm-8 col-lg-6">
