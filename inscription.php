@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $verif = verifyUser($_POST);
     if ($verif === true) {
         $resAdd = addUser($pdo, $_POST["username"], $_POST["email"], $_POST["password"]);
-        // @todo rediréger vers login 
+        header("location: login.php"); 
     } else {
         $errors = $verif;
     }
@@ -58,6 +58,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <div class="mb-3">
             <label class="form-label " for="email">Mot de passe</label>
             <input class="form-control" type="password" name="password" id="password">
+            <?php if (isset($errors["password"])) { ?>
+
+                <div class="alert alert-danger" role="alert">
+                    <?= $errors["password"] ?>
+                </div>
+
+
+            <?php } ?>
         </div>
         <input class="btn btn-primary" type="submit" value="Enregister" name="add_user">
     </form>

@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -32,8 +34,13 @@
 
             <div class="col-md-3 text-end">
                 <!-- Utilisation de <a> au lieu de <button> -->
-                <a class="btn btn-outline-primary me-2" href="login.php">Connexion</a>
-                <a class="btn btn-primary" href="inscription.php">Inscription</a>
+                <?php if (isset($_SESSION["user"])): ?>
+                    <span>Bonjour <?= $_SESSION["user"]["username"] ?></span>
+                    <a class="btn btn-outline-primary me-2" href="logout.php">Deconnexion</a>
+                <?php else: ?>
+                    <a class="btn btn-outline-primary me-2" href="login.php">Connexion</a>
+                    <a class="btn btn-primary" href="inscription.php">Inscription</a>
+                <?php endif; ?>
             </div>
         </header>
         <main>
