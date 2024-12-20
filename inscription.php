@@ -10,8 +10,8 @@ require_once 'libs/user.php';
 //     // var_dump($res);
 // }
 
-$res = verifyUser($_POST);
-var_dump($res); 
+//$res = verifyUser($_POST);
+// var_dump($res); 
 
 
 
