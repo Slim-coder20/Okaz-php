@@ -7,9 +7,11 @@ require_once 'libs/user.php';
 
 $errors = [];
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    // @todo ajouter la vérification sur tout les champs du formulaire d'inscription 
     $verif = verifyUser($_POST);
     if ($verif === true) {
         $resAdd = addUser($pdo, $_POST["username"], $_POST["email"], $_POST["password"]);
+        // @todo rediréger vers login 
     } else {
         $errors = $verif;
     }
