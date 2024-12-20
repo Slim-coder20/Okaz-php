@@ -10,8 +10,10 @@ require_once 'libs/user.php';
 //     // var_dump($res);
 // }
 
-//$res = verifyUser($_POST);
-// var_dump($res); 
+$res = verifyUser($_POST);
+// var_dump($res);
+
+
 
 
 
@@ -28,7 +30,7 @@ require_once 'libs/user.php';
         </div>
         <div class="mb-3">
             <label class="form-label" for="email">Email</label>
-            <input class="form-control" type="text" name="email" id="eamil">
+            <input class="form-control" type="text" name="email" id="email">
         </div>
         <div class="mb-3">
             <label class="form-label " for="email">Mot de passe</label>
