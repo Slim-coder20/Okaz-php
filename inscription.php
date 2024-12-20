@@ -4,14 +4,19 @@ require_once 'libs/pdo.php';
 require_once 'libs/user.php';
 
 
-// if (isset($_POST["username"]) && isset($_POST["email"]) && isset($_POST["password"])) {
 
-//     $res = addUser($pdo, $_POST["username"], $_POST["email"], $_POST["password"]);
-//     // var_dump($res);
-// }
+$errors = [];
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $verif = verifyUser($_POST);
+    if ($verif === true) {
+        $resAdd = addUser($pdo, $_POST["username"], $_POST["email"], $_POST["password"]);
+    } else {
+        $errors = $verif;
+    }
+    //var_dump($res);
+}
 
-$res = verifyUser($_POST);
-// var_dump($res);
+
 
 
 
@@ -27,16 +32,32 @@ $res = verifyUser($_POST);
         <div class="mb-3">
             <label class="form-label " for="username">Nom d'utilisateur</label>
             <input class="form-control" type="text" name="username" id="username">
+            <?php if (isset($errors["username"])) { ?>
+
+                <div class="alert alert-danger" role="alert">
+                    <?= $errors["username"] ?>
+                </div>
+
+
+            <?php } ?>
         </div>
         <div class="mb-3">
             <label class="form-label" for="email">Email</label>
             <input class="form-control" type="text" name="email" id="email">
+            <?php if (isset($errors["email"])) { ?>
+
+                <div class="alert alert-danger" role="alert">
+                    <?= $errors["email"] ?>
+                </div>
+
+
+            <?php } ?>
         </div>
         <div class="mb-3">
             <label class="form-label " for="email">Mot de passe</label>
             <input class="form-control" type="password" name="password" id="password">
         </div>
-        <input class="btn btn-primary" type="submit" value="Enregister">
+        <input class="btn btn-primary" type="submit" value="Enregister" name="add_user">
     </form>
 </div>
 
